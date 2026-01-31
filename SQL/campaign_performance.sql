@@ -46,8 +46,9 @@ LEFT JOIN campagnes_actives_mensuelles ca
 ORDER BY v.mois;
 /*L’analyse mensuelle montre que les périodes avec un nombre élevé de campagnes actives s’accompagnent généralement d’un budget marketing et d’un 
 reach plus importants, sans pour autant entraîner mécaniquement une hausse proportionnelle des ventes.*/
-/*Le ratio ventes / budget marketing reste globalement faible et très variable selon les mois, ce qui suggère que l’intensité marketing seule n’explique 
-pas entièrement la performance commerciale. L’efficacité semble dépendre davantage de la qualité des campagnes que de leur volume.*/
+/*Le ratio ventes / budget marketing reste globalement faible et très variable selon les mois, ce qui suggère que l’intensité marketing 
+seule n’explique pas entièrement la performance commerciale. L’efficacité semble dépendre davantage de la qualité des campagnes que de 
+leur volume.*/
 
 -- 2.2 Identification des campagnes les plus efficaces
 SELECT
@@ -68,8 +69,8 @@ WHERE reach > 0
   AND budget > 0
 ORDER BY cout_par_conversion ASC, conversions_estimees DESC
 LIMIT 20;
-/*Cette requête identifie les campagnes ayant le meilleur coût par conversion, tout en tenant compte du volume de conversions estimées. Elle permet de 
-repérer les actions marketing les plus efficientes en termes de rentabilité et d’orienter les futurs investissements.*/
+/*Cette requête identifie les campagnes ayant le meilleur coût par conversion, tout en tenant compte du volume de conversions estimées. 
+Elle permet de repérer les actions marketing les plus efficientes en termes de rentabilité et d’orienter les futurs investissements.*/
 
 -- 2.3 Performance par type de campagne
 SELECT
@@ -88,8 +89,9 @@ SELECT
 FROM SILVER.marketing_campaigns_clean
 GROUP BY campaign_type
 ORDER BY cout_par_conversion_global ASC NULLS LAST;
-/*Les performances sont relativement homogènes entre les différents types de campagnes, tant en termes de taux de conversion que de coût par conversion. 
-Aucun levier ne se démarque fortement, ce qui suggère une efficacité comparable des canaux marketing à ce stade de l’analyse.*/
+/*Les performances sont relativement homogènes entre les différents types de campagnes, tant en termes de taux de conversion que de 
+coût par conversion. Aucun levier ne se démarque fortement, ce qui suggère une efficacité comparable des canaux marketing à ce stade 
+de l’analyse.*/
 
 --Performance par catégorie de produit (marketing) 
 SELECT
@@ -103,8 +105,8 @@ SELECT
 FROM SILVER.marketing_campaigns_clean
 GROUP BY product_category
 ORDER BY cout_par_conversion ASC NULLS LAST;
-/*Les performances marketing sont globalement proches entre les catégories de produits. Clothing et Baby Food présentent les coûts par conversion les 
-plus faibles, tandis que Household et Electronics apparaissent légèrement moins rentables. Aucun écart majeur ne se dégage à ce stade.*/
+/*Les performances marketing sont globalement proches entre les catégories de produits. Clothing et Baby Food présentent les coûts 
+par conversion les plus faibles, tandis que Household et Electronics apparaissent légèrement moins rentables.*/
 
 -- Sensibilité des catégories produits aux promotions (category_lvl2)
 
@@ -188,8 +190,8 @@ SELECT
 FROM SILVER.logistics_and_shipping_clean
 GROUP BY shipping_method
 ORDER BY nb_envois DESC;
-/*Les différentes méthodes d’expédition présentent des délais moyens très similaires (environ 7,5 jours) et des coûts proches. Les taux de retour sont également
- comparables, autour de 20–22 %, sans différence majeure entre Standard, Express, Next Day et International.*/
+/*Les différentes méthodes d’expédition présentent des délais moyens très similaires (environ 7,5 jours) et des coûts proches. Les taux de retour 
+sont également comparables, autour de 20–22 %, sans différence majeure entre Standard, Express, Next Day et International.*/
 
 --4.5 Transporteurs
 SELECT
@@ -202,8 +204,8 @@ SELECT
 FROM SILVER.logistics_and_shipping_clean
 GROUP BY carrier
 ORDER BY nb_envois DESC;
-/*Les volumes par transporteur sont faibles et très dispersés, ce qui rend les taux de livraison et de retour peu stables. Aucun acteur ne se démarque 
-clairement pour l’instant, les performances semblant hétérogènes et dépendantes de petits volumes d’expédition.*/
+/*Les volumes par transporteur sont faibles et très dispersés, ce qui rend les taux de livraison et de retour peu stables. Aucun acteur 
+ne se démarque clairement pour l’instant, les performances semblant hétérogènes et dépendantes de petits volumes d’expédition.*/
 
 --4.6 Retours par région et méthode
 SELECT 

@@ -449,7 +449,8 @@ SELECT
     COUNT(DISTINCT w:city) as nb_cities,
     COUNT(DISTINCT w:store_type) as nb_store_types
 FROM store_locations_raw;
-/*La table store_locations_raw recense 897 magasins répartis sur 7 régions et 33 pays, couvrant plus de 4 200 villes et 5 types de points de vente*/
+/*La table store_locations_raw recense 897 magasins répartis sur 7 régions et 33 pays, couvrant plus de 4 200 villes et 5 types de points 
+de vente*/
 
 /*Pour la table product_reviews_raw, les Colonnes clés seront identifier après le parsing pour la création du modèle silver car pour le moment il est 
 chargé en raw text */

@@ -140,8 +140,9 @@ SELECT
     AVG(current_stock) AS avg_stock,
     COUNT(CASE WHEN current_stock <= reorder_point THEN 1 END) AS nb_low_stock
 FROM inventory_clean;
-/*La table contient 4 986 produits répartis sur 7 catégories, 7 régions et 33 pays, avec un stock total d’environ 25 millions d’unités et une moyenne
- proche de 5 000 par produit. Seuls 97 articles sont actuellement sous le seuil de réapprovisionnement, indiquant une situation globale de stock maîtrisée.*/
+/*La table contient 4 986 produits répartis sur 7 catégories, 7 régions et 33 pays, avec un stock total d’environ 25 millions d’unités et une 
+moyenne proche de 5 000 par produit. Seuls 97 articles sont actuellement sous le seuil de réapprovisionnement, indiquant une situation globale 
+de stock maîtrisée.*/
 
 SELECT 
     'store_locations_clean' AS table_name,
@@ -153,8 +154,8 @@ SELECT
     AVG(square_footage) AS avg_square_footage,
     AVG(employee_count) AS avg_employees
 FROM store_locations_clean;
-/*La table recense 897 magasins répartis dans 7 régions et 33 pays, couvrant 5 types de points de vente et plus de 4 200 villes. La surface moyenne est 
-d’environ 5 487 m² avec près de 27 employés en moyenne.*/
+/*La table recense 897 magasins répartis dans 7 régions et 33 pays, couvrant 5 types de points de vente et plus de 4 200 villes. La surface 
+moyenne est d’environ 5 487 m² avec près de 27 employés en moyenne.*/
 
 
 SELECT 
@@ -170,7 +171,8 @@ SELECT
     AVG(helpful_total) AS avg_helpful_votes
 FROM product_reviews_clean;
 /*La table contient des avis pour 250 produits sur la période 2020–2025, rédigés par 966 utilisateurs uniques et répartis sur 7 catégories 
-principales. La note moyenne est élevée (4,08/5), avec en moyenne un peu plus de 2 votes « utile » par avis, indiquant une satisfaction globale forte.*/
+principales. La note moyenne est élevée (4,08/5), avec en moyenne un peu plus de 2 votes « utile » par avis, indiquant une 
+satisfaction globale forte.*/
 
 -- Partie 2.2 – Analyses exploratoires descriptives
 -- 1. ANALYSE DE L'ÉVOLUTION DES VENTES DANS LE TEMPS
@@ -198,8 +200,9 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY 1
 ORDER BY 1;
-/*L’analyse trimestrielle met en évidence des fluctuations du chiffre d’affaires au cours du temps. Ces variations s’expliquent à la fois par l’évolution 
-du nombre de transactions et du montant moyen par vente, ce qui permet de distinguer les effets de volume des effets de valeur.*/
+/*L’analyse trimestrielle met en évidence des fluctuations du chiffre d’affaires au cours du temps. Ces variations s’expliquent à la fois 
+par l’évolution du nombre de transactions et du montant moyen par vente, ce qui permet de distinguer les effets de volume des effets 
+de valeur.*/
 
 -- 1.3 Évolution des ventes par année
 SELECT 
@@ -213,9 +216,10 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY YEAR(transaction_date)
 ORDER BY annee;
-/*L’analyse annuelle met en évidence une variabilité du chiffre d’affaires selon les années, avec un pic observé autour de 2018. Cette 
-évolution s’explique à la fois par le nombre de transactions et par le montant moyen par vente. Le panier moyen reste relativement stable 
-dans le temps, tandis que les montants maximaux annuels sont proches, suggérant une politique de prix constante sur les ventes de grande valeur.*/
+/*L’analyse annuelle met en évidence une variabilité du chiffre d’affaires selon les années, avec un pic observé autour de 2018. 
+Cette évolution s’explique à la fois par le nombre de transactions et par le montant moyen par vente. Le panier moyen reste 
+relativement stable dans le temps, tandis que les montants maximaux annuels sont proches, suggérant une politique de prix constante 
+sur les ventes de grande valeur.*/
 
 -- 1.4 Tendance des ventes : comparaison année sur année
 WITH ventes_annuelles AS (
@@ -266,10 +270,10 @@ SELECT
     MIN(evolution_pct) AS minimum_evolution_pct,
     MAX(evolution_pct) AS meilleure_evolution_pct
 FROM evolutions;
-/*L’analyse des évolutions annuelles met en évidence une croissance moyenne modérée de l’ordre de 1 %, indiquant une progression globale relativement 
-stable sur la période étudiée. Néanmoins, cette tendance masque une forte variabilité d’une année sur l’autre, avec des baisses marquées pouvant 
-atteindre −16,8 % ainsi que des phases de forte expansion culminant à +24,5 %. Ces fluctuations traduisent une sensibilité importante de l’activité aux 
-conditions économiques ou commerciales.*/
+/*L’analyse des évolutions annuelles met en évidence une croissance moyenne modérée de l’ordre de 1 %, indiquant une progression globale 
+relativement stable sur la période étudiée. Néanmoins, cette tendance masque une forte variabilité d’une année sur l’autre, avec des baisses 
+marquées pouvant atteindre −16,8 % ainsi que des phases de forte expansion culminant à +24,5 %. Ces fluctuations traduisent une sensibilité 
+importante de l’activité aux conditions économiques ou commerciales.*/
 
 -- Partie 2.2 – Analyses exploratoires descriptives
 -- 1. ANALYSE DE L'ÉVOLUTION DES VENTES DANS LE TEMPS
