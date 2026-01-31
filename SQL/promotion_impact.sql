@@ -40,7 +40,9 @@ GROUP BY
         WHEN pa.nb_promotions_actives > 0 THEN 'Avec promotion'
         ELSE 'Sans promotion'
     END;
---La comparaison entre les périodes avec et sans promotion ne met pas en évidence d’augmentation significative des ventes journalières lors des campagnes promotionnelles. Le chiffre d’affaires moyen par jour ainsi que le volume de transactions apparaissent légèrement supérieurs hors promotion, suggérant une efficacité limitée des promotions dans leur forme actuelle.
+/*La comparaison entre les périodes avec et sans promotion ne met pas en évidence d’augmentation significative des ventes journalières lors des 
+campagnes promotionnelles. Le chiffre d’affaires moyen par jour ainsi que le volume de transactions apparaissent légèrement supérieurs hors promotion, 
+suggérant une efficacité limitée des promotions dans leur forme actuelle.*/
 
 -- Impact des promotions par mois
 WITH ventes_mensuelles AS (
@@ -67,7 +69,9 @@ SELECT
 FROM ventes_mensuelles v
 LEFT JOIN promotions_mensuelles p ON v.mois = p.mois
 ORDER BY v.mois;
---L’analyse mensuelle croisant chiffre d’affaires et activité promotionnelle ne met pas en évidence de relation directe entre le nombre de promotions ou le niveau de remise et le volume des ventes. Plusieurs mois sans promotion présentent des performances comparables, voire supérieures, à des périodes promotionnelles actives, suggérant un impact global limité des campagnes promotionnelles sur le chiffre d’affaires.
+/*L’analyse mensuelle croisant chiffre d’affaires et activité promotionnelle ne met pas en évidence de relation directe entre le nombre de promotions 
+ou le niveau de remise et le volume des ventes. Plusieurs mois sans promotion présentent des performances comparables, voire supérieures, à des périodes 
+promotionnelles actives, suggérant un impact global limité des campagnes promotionnelles sur le chiffre d’affaires.*/
 
 --Analyse promotions par catégorie
 SELECT
@@ -80,4 +84,8 @@ SELECT
 FROM promotions_data_clean
 GROUP BY product_category
 ORDER BY nb_promotions DESC;
---L’analyse des promotions par catégorie montre que Organic Meal Solutions concentre le plus grand nombre de campagnes, avec une couverture géographique étendue et des niveaux de remise moyens autour de 15 %. Organic Beverages fait également l’objet de nombreuses opérations promotionnelles, tandis que Organic Snacks est moins fréquemment promu mais bénéficie de remises légèrement plus élevées. Ces résultats suggèrent une priorisation stratégique de certaines familles de produits dans les actions commerciales, indépendamment de leur volume réel de ventes, qui ne peut être évalué faute de lien direct entre promotions et transactions.
+/*L’analyse des promotions par catégorie montre que Organic Meal Solutions concentre le plus grand nombre de campagnes, avec une couverture géographique 
+étendue et des niveaux de remise moyens autour de 15 %. Organic Beverages fait également l’objet de nombreuses opérations promotionnelles, tandis que 
+Organic Snacks est moins fréquemment promu mais bénéficie de remises légèrement plus élevées. Ces résultats suggèrent une priorisation stratégique de 
+certaines familles de produits dans les actions commerciales, indépendamment de leur volume réel de ventes, qui ne peut être évalué faute de lien direct 
+entre promotions et transactions.*/

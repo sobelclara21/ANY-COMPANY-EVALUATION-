@@ -12,7 +12,8 @@ SELECT
   MIN(annual_income) AS min_income,
   MAX(annual_income) AS max_income
 FROM SILVER.customer_demographics_clean;
---La table customer_demographics_clean contient 5 000 clients uniques, répartis sur 7 régions et 33 pays, avec des dates de naissance entre 1944 et 2007.Le revenu annuel moyen est d’environ 109 k, avec des valeurs de salaire allant de 20 k à 199 k.
+/*La table customer_demographics_clean contient 5 000 clients uniques, répartis sur 7 régions et 33 pays, avec des dates de naissance 
+entre 1944 et 2007.Le revenu annuel moyen est d’environ 109 k, avec des valeurs de salaire allant de 20 k à 199 k.*/
 
 SELECT 
     'customer_service_interactions_clean' AS table_name,
@@ -26,7 +27,8 @@ SELECT
     ROUND(AVG(duration_minutes), 2) AS avg_duration,
     ROUND(AVG(customer_satisfaction), 2) AS avg_satisfaction
 FROM SILVER.customer_service_interactions_clean;
---La table contient 4 997 interactions uniques couvrant la période 2010–2023, avec 4 types d’interactions, 5 catégories de problèmes et 3 statuts de résolution. La durée moyenne est d’environ 30,6 minutes et la satisfaction moyenne est proche de 3.
+/*La table contient 4 997 interactions uniques couvrant la période 2010–2023, avec 4 types d’interactions, 5 catégories de problèmes 
+et 3 statuts de résolution. La durée moyenne est d’environ 30,6 minutes et la satisfaction moyenne est proche de 3.*/
 
 SELECT 
     'financial_transactions_clean' AS table_name,
@@ -41,7 +43,8 @@ SELECT
     MIN(amount) AS min_amount,
     MAX(amount) AS max_amount
 FROM financial_transactions_clean;
---La table contient 5 000 transactions couvrant la période 2010–2023, réparties sur 5 types et 7 régions. Le montant total des transactions dépasse 25 M, avec une moyenne d’environ 5 016, et des valeurs comprises entre 12 et 9 998 par transaction.
+/*La table contient 5 000 transactions couvrant la période 2010–2023, réparties sur 5 types et 7 régions. Le montant total des 
+transactions dépasse 25 M, avec une moyenne d’environ 5 016, et des valeurs comprises entre 12 et 9 998 par transaction.*/
 
 SELECT 
     'marketing_campaigns_clean' AS table_name,
@@ -57,7 +60,8 @@ SELECT
     AVG(conversion_rate) AS avg_conversion,
     SUM(reach) AS total_reach
 FROM marketing_campaigns_clean;
---La table recense 4 861 campagnes marketing entre 2010 et 2018, couvrant 7 types, 7 catégories produits et 7 régions. Le budget total des campagnes dépasse 1,23 milliard, avec un budget moyen d’environ 254 k par campagne et un taux de conversion moyen de 5,5 %.
+/*La table recense 4 861 campagnes marketing entre 2010 et 2018, couvrant 7 types, 7 catégories produits et 7 régions. Le budget total 
+des campagnes dépasse 1,23 milliard, avec un budget moyen d’environ 254 k par campagne et un taux de conversion moyen de 5,5 %.*/
 
 SELECT 
     'promotions_data_clean' AS table_name,
@@ -72,7 +76,8 @@ SELECT
     MIN(discount_percentage) AS min_discount,
     MAX(discount_percentage) AS max_discount
 FROM promotions_data_clean;
---La table recense 87 promotions sur la période 2020–2025, couvrant 3 catégories de produits, 75 types de promotion et 9 régions. Le taux de remise moyen est d’environ 15 %, avec des valeurs comprises entre 5 % et 25 %.
+/*La table recense 87 promotions sur la période 2020–2025, couvrant 3 catégories de produits, 75 types de promotion et 9 régions. 
+Le taux de remise moyen est d’environ 15 %, avec des valeurs comprises entre 5 % et 25 %.*/
 
 SELECT 
     'logistics_and_shipping_clean' AS table_name,
@@ -88,7 +93,8 @@ SELECT
     AVG(shipping_cost) AS avg_shipping_cost,
     SUM(shipping_cost) AS total_shipping_cost
 FROM logistics_and_shipping_clean;
---La table contient 4 999 expéditions couvrant la période 2010–2023, réparties sur 4 modes de livraison, 5 statuts, 7 régions et plus de 4 500 transporteurs. Le coût moyen d’expédition est d’environ 52 par envoi, pour un coût total cumulé proche de 259 k.
+/*La table contient 4 999 expéditions couvrant la période 2010–2023, réparties sur 4 modes de livraison, 5 statuts, 7 régions et plus de 
+4 500 transporteurs. Le coût moyen d’expédition est d’environ 52 par envoi, pour un coût total cumulé proche de 259 k.*/
 
 SELECT 
     'supplier_information_clean' AS table_name,
@@ -101,7 +107,8 @@ SELECT
     AVG(reliability_score) AS avg_reliability,
     COUNT(DISTINCT quality_rating) AS nb_quality_ratings
 FROM supplier_information_clean;
---La table contient 4 865 fournisseurs uniques répartis sur 7 catégories de produits, 7 régions et 33 pays. Le délai moyen de livraison est d’environ 15 jours et le score de fiabilité moyen atteint 0,71, avec 3 niveaux de notation qualité.
+/*La table contient 4 865 fournisseurs uniques répartis sur 7 catégories de produits, 7 régions et 33 pays. Le délai moyen de livraison est 
+d’environ 15 jours et le score de fiabilité moyen atteint 0,71, avec 3 niveaux de notation qualité.*/
 
 SELECT 
     'employee_records_clean' AS table_name,
@@ -117,8 +124,8 @@ SELECT
     MIN(salary) AS min_salary,
     MAX(salary) AS max_salary
 FROM employee_records_clean;
-
---Les employés sont répartis sur 7 départements et 42 postes entre 2000 et 2023, avec un salaire moyen proche de 89 800 et des valeurs allant d’environ 30 000 à 150 000.
+/*Les employés sont répartis sur 7 départements et 42 postes entre 2000 et 2023, avec un salaire moyen proche de 89 800 et des valeurs allant 
+d’environ 30 000 à 150 000.*/
 
 SELECT 
     'inventory_clean' AS table_name,
@@ -133,7 +140,8 @@ SELECT
     AVG(current_stock) AS avg_stock,
     COUNT(CASE WHEN current_stock <= reorder_point THEN 1 END) AS nb_low_stock
 FROM inventory_clean;
---La table contient 4 986 produits répartis sur 7 catégories, 7 régions et 33 pays, avec un stock total d’environ 25 millions d’unités et une moyenne proche de 5 000 par produit. Seuls 97 articles sont actuellement sous le seuil de réapprovisionnement, indiquant une situation globale de stock maîtrisée.
+/*La table contient 4 986 produits répartis sur 7 catégories, 7 régions et 33 pays, avec un stock total d’environ 25 millions d’unités et une moyenne
+ proche de 5 000 par produit. Seuls 97 articles sont actuellement sous le seuil de réapprovisionnement, indiquant une situation globale de stock maîtrisée.*/
 
 SELECT 
     'store_locations_clean' AS table_name,
@@ -145,7 +153,8 @@ SELECT
     AVG(square_footage) AS avg_square_footage,
     AVG(employee_count) AS avg_employees
 FROM store_locations_clean;
---La table recense 897 magasins répartis dans 7 régions et 33 pays, couvrant 5 types de points de vente et plus de 4 200 villes. La surface moyenne est d’environ 5 487 m² avec près de 27 employés en moyenne.
+/*La table recense 897 magasins répartis dans 7 régions et 33 pays, couvrant 5 types de points de vente et plus de 4 200 villes. La surface moyenne est 
+d’environ 5 487 m² avec près de 27 employés en moyenne.*/
 
 
 SELECT 
@@ -160,7 +169,8 @@ SELECT
     MAX(rating) AS max_rating,
     AVG(helpful_total) AS avg_helpful_votes
 FROM product_reviews_clean;
---La table contient des avis pour 250 produits sur la période 2020–2025, rédigés par 966 utilisateurs uniques et répartis sur 7 catégories principales. La note moyenne est élevée (4,08/5), avec en moyenne un peu plus de 2 votes « utile » par avis, indiquant une satisfaction globale forte.
+/*La table contient des avis pour 250 produits sur la période 2020–2025, rédigés par 966 utilisateurs uniques et répartis sur 7 catégories 
+principales. La note moyenne est élevée (4,08/5), avec en moyenne un peu plus de 2 votes « utile » par avis, indiquant une satisfaction globale forte.*/
 
 -- Partie 2.2 – Analyses exploratoires descriptives
 -- 1. ANALYSE DE L'ÉVOLUTION DES VENTES DANS LE TEMPS
@@ -175,7 +185,8 @@ FROM SILVER.financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY 1
 ORDER BY 1;
---La comparaison mois par mois du nombre de transactions et du total des ventes met en évidence des pics d’activité et des baisses régulières au fil du temps, suggérant une saisonnalité dans les ventes.
+/*La comparaison mois par mois du nombre de transactions et du total des ventes met en évidence des pics d’activité et des baisses régulières 
+au fil du temps, suggérant une saisonnalité dans les ventes.*/
 
 -- 1.2 Évolution des ventes par trimestre
 SELECT 
@@ -187,7 +198,8 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY 1
 ORDER BY 1;
---L’analyse trimestrielle met en évidence des fluctuations du chiffre d’affaires au cours du temps. Ces variations s’expliquent à la fois par l’évolution du nombre de transactions et du montant moyen par vente, ce qui permet de distinguer les effets de volume des effets de valeur.
+/*L’analyse trimestrielle met en évidence des fluctuations du chiffre d’affaires au cours du temps. Ces variations s’expliquent à la fois par l’évolution 
+du nombre de transactions et du montant moyen par vente, ce qui permet de distinguer les effets de volume des effets de valeur.*/
 
 -- 1.3 Évolution des ventes par année
 SELECT 
@@ -201,7 +213,9 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY YEAR(transaction_date)
 ORDER BY annee;
---L’analyse annuelle met en évidence une variabilité du chiffre d’affaires selon les années, avec un pic observé autour de 2018. Cette évolution s’explique à la fois par le nombre de transactions et par le montant moyen par vente. Le panier moyen reste relativement stable dans le temps, tandis que les montants maximaux annuels sont proches, suggérant une politique de prix constante sur les ventes de grande valeur.
+/*L’analyse annuelle met en évidence une variabilité du chiffre d’affaires selon les années, avec un pic observé autour de 2018. Cette 
+évolution s’explique à la fois par le nombre de transactions et par le montant moyen par vente. Le panier moyen reste relativement stable 
+dans le temps, tandis que les montants maximaux annuels sont proches, suggérant une politique de prix constante sur les ventes de grande valeur.*/
 
 -- 1.4 Tendance des ventes : comparaison année sur année
 WITH ventes_annuelles AS (
@@ -221,7 +235,9 @@ SELECT
            NULLIF(LAG(total_ventes) OVER (ORDER BY annee), 0)) * 100, 2) AS evolution_pct
 FROM ventes_annuelles
 ORDER BY annee;
---La comparaison année sur année met en évidence une forte variabilité du chiffre d’affaires. Certaines années connaissent des progressions significatives, tandis que d’autres enregistrent des baisses marquées pouvant dépasser 15 %. Cette volatilité suggère une activité sensible au contexte économique, à la saisonnalité longue ou à des évolutions de stratégie commerciale.
+/*La comparaison année sur année met en évidence une forte variabilité du chiffre d’affaires. Certaines années connaissent des progressions 
+significatives, tandis que d’autres enregistrent des baisses marquées pouvant dépasser 15 %. Cette volatilité suggère une activité sensible 
+au contexte économique, à la saisonnalité longue ou à des évolutions de stratégie commerciale.*/
 
 WITH ventes_annuelles AS (
     SELECT 
@@ -250,7 +266,10 @@ SELECT
     MIN(evolution_pct) AS minimum_evolution_pct,
     MAX(evolution_pct) AS meilleure_evolution_pct
 FROM evolutions;
---L’analyse des évolutions annuelles met en évidence une croissance moyenne modérée de l’ordre de 1 %, indiquant une progression globale relativement stable sur la période étudiée. Néanmoins, cette tendance masque une forte variabilité d’une année sur l’autre, avec des baisses marquées pouvant atteindre −16,8 % ainsi que des phases de forte expansion culminant à +24,5 %. Ces fluctuations traduisent une sensibilité importante de l’activité aux conditions économiques ou commerciales.
+/*L’analyse des évolutions annuelles met en évidence une croissance moyenne modérée de l’ordre de 1 %, indiquant une progression globale relativement 
+stable sur la période étudiée. Néanmoins, cette tendance masque une forte variabilité d’une année sur l’autre, avec des baisses marquées pouvant 
+atteindre −16,8 % ainsi que des phases de forte expansion culminant à +24,5 %. Ces fluctuations traduisent une sensibilité importante de l’activité aux 
+conditions économiques ou commerciales.*/
 
 -- Partie 2.2 – Analyses exploratoires descriptives
 -- 1. ANALYSE DE L'ÉVOLUTION DES VENTES DANS LE TEMPS
@@ -265,7 +284,8 @@ FROM SILVER.financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY 1
 ORDER BY 1;
---La comparaison mois par mois du nombre de transactions et du total des ventes met en évidence des pics d’activité et des baisses régulières au fil du temps, suggérant une saisonnalité dans les ventes.
+/*La comparaison mois par mois du nombre de transactions et du total des ventes met en évidence des pics d’activité et des baisses régulières 
+au fil du temps, suggérant une saisonnalité dans les ventes.*/
 
 -- 1.2 Évolution des ventes par trimestre
 SELECT 
@@ -277,7 +297,8 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY 1
 ORDER BY 1;
---L’analyse trimestrielle met en évidence des fluctuations du chiffre d’affaires au cours du temps. Ces variations s’expliquent à la fois par l’évolution du nombre de transactions et du montant moyen par vente, ce qui permet de distinguer les effets de volume des effets de valeur.
+/*L’analyse trimestrielle met en évidence des fluctuations du chiffre d’affaires au cours du temps. Ces variations s’expliquent à la fois 
+par l’évolution du nombre de transactions et du montant moyen par vente, ce qui permet de distinguer les effets de volume des effets de valeur.*/
 
 -- 1.3 Évolution des ventes par année
 SELECT 
@@ -291,7 +312,9 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY YEAR(transaction_date)
 ORDER BY annee;
---L’analyse annuelle met en évidence une variabilité du chiffre d’affaires selon les années, avec un pic observé autour de 2018. Cette évolution s’explique à la fois par le nombre de transactions et par le montant moyen par vente. Le panier moyen reste relativement stable dans le temps, tandis que les montants maximaux annuels sont proches, suggérant une politique de prix constante sur les ventes de grande valeur.
+/*L’analyse annuelle met en évidence une variabilité du chiffre d’affaires selon les années, avec un pic observé autour de 2018. Cette 
+évolution s’explique à la fois par le nombre de transactions et par le montant moyen par vente. Le panier moyen reste relativement stable 
+dans le temps, tandis que les montants maximaux annuels sont proches, suggérant une politique de prix constante sur les ventes de grande valeur.*/
 
 -- 1.4 Tendance des ventes : comparaison année sur année
 WITH ventes_annuelles AS (
@@ -311,7 +334,10 @@ SELECT
            NULLIF(LAG(total_ventes) OVER (ORDER BY annee), 0)) * 100, 2) AS evolution_pct
 FROM ventes_annuelles
 ORDER BY annee;
---La comparaison année sur année met en évidence une forte variabilité du chiffre d’affaires. Certaines années connaissent des progressions significatives, tandis que d’autres enregistrent des baisses marquées pouvant dépasser 15 %. Cette volatilité suggère une activité sensible au contexte économique, à la saisonnalité longue ou à des évolutions de stratégie commerciale.
+/*La comparaison année sur année met en évidence une forte variabilité du chiffre d’affaires. 
+Certaines années connaissent des progressions significatives, tandis que d’autres enregistrent des baisses marquées pouvant dépasser 
+15 %. Cette volatilité suggère une activité sensible au contexte économique, à la saisonnalité longue ou à des évolutions de stratégie 
+commerciale.*/
 
 WITH ventes_annuelles AS (
     SELECT 
@@ -340,7 +366,10 @@ SELECT
     MIN(evolution_pct) AS minimum_evolution_pct,
     MAX(evolution_pct) AS meilleure_evolution_pct
 FROM evolutions;
---L’analyse des évolutions annuelles met en évidence une croissance moyenne modérée de l’ordre de 1 %, indiquant une progression globale relativement stable sur la période étudiée. Néanmoins, cette tendance masque une forte variabilité d’une année sur l’autre, avec des baisses marquées pouvant atteindre −16,8 % ainsi que des phases de forte expansion culminant à +24,5 %. Ces fluctuations traduisent une sensibilité importante de l’activité aux conditions économiques ou commerciales.
+/*L’analyse des évolutions annuelles met en évidence une croissance moyenne modérée de l’ordre de 1 %, indiquant une progression 
+globale relativement stable sur la période étudiée. Néanmoins, cette tendance masque une forte variabilité d’une année sur l’autre, 
+avec des baisses marquées pouvant atteindre −16,8 % ainsi que des phases de forte expansion culminant à +24,5 %. Ces fluctuations traduisent 
+une sensibilité importante de l’activité aux conditions économiques ou commerciales.*/
 
 -- 2. PERFORMANCE PAR PRODUIT, CATÉGORIE ET RÉGION
 -- 2.1 Top 10 produits les plus commentés
@@ -353,7 +382,8 @@ FROM product_reviews_clean p
 GROUP BY p.product_id, p.category_lvl1
 ORDER BY nb_avis DESC
 LIMIT 10;
---Cette analyse met en évidence les produits ayant généré le plus d’avis clients.Ces produits sont probablement très populaires ou très diffusés, mais cela ne reflète pas directement leur volume de ventes.
+/*Cette analyse met en évidence les produits ayant généré le plus d’avis clients.Ces produits sont probablement très populaires 
+ou très diffusés, mais cela ne reflète pas directement leur volume de ventes.*/
 
 -- 2.2 Performance par catégorie de produit (perception client)
 SELECT 
@@ -366,7 +396,10 @@ SELECT
 FROM product_reviews_clean
 GROUP BY category_lvl1
 ORDER BY nb_avis_total DESC;
---Les catégories Plant-based Milk Alternatives et Cold-pressed Juices concentrent le plus d’avis, signe d’une forte visibilité auprès des clients.Cette analyse met en évidence que popularité et satisfaction ne sont pas toujours alignées, ce qui justifie une analyse complémentaire basée sur les ventes. Certaines catégories comme Gluten-free Crackers ou Ready-to-eat Organic Salads affichent toutefois une meilleure satisfaction moyenne malgré un volume plus faible.
+/*Les catégories Plant-based Milk Alternatives et Cold-pressed Juices concentrent le plus d’avis, signe d’une forte visibilité 
+auprès des clients.Cette analyse met en évidence que popularité et satisfaction ne sont pas toujours alignées, ce qui justifie 
+une analyse complémentaire basée sur les ventes. Certaines catégories comme Gluten-free Crackers ou Ready-to-eat Organic Salads 
+affichent toutefois une meilleure satisfaction moyenne malgré un volume plus faible.*/
 
 
 -- 2.3 Performance des ventes par région
@@ -381,9 +414,12 @@ FROM financial_transactions_clean
 WHERE transaction_type = 'Sale'
 GROUP BY region
 ORDER BY total_ventes DESC;
---Les ventes sont relativement bien réparties entre les régions, avec toutefois une légère domination de l’Amérique du Nord et de l’Amérique du Sud en termes de chiffre d’affaires total. L’Europe et l’Océanie suivent de près, tandis que l’Afrique présente un volume légèrement inférieur. Le panier moyen reste globalement homogène entre les régions.
+/*Les ventes sont relativement bien réparties entre les régions, avec toutefois une légère domination de l’Amérique du Nord et de 
+l’Amérique du Sud en termes de chiffre d’affaires total. L’Europe et l’Océanie suivent de près, tandis que l’Afrique présente un 
+volume légèrement inférieur. Le panier moyen reste globalement homogène entre les régions.*/
 
---Les transactions financières ne sont pas reliées aux produits dans le modèle de données disponible. Il est donc impossible de calculer le chiffre d’affaires par catégorie ou de croiser ventes et avis clients à ce stade.
+/*Les transactions financières ne sont pas reliées aux produits dans le modèle de données disponible. Il est donc impossible de 
+calculer le chiffre d’affaires par catégorie ou de croiser ventes et avis clients à ce stade.*/
 
 -- 3. RÉPARTITION DES CLIENTS PAR SEGMENTS DÉMOGRAPHIQUES
 --Répartition par genre
@@ -397,7 +433,9 @@ SELECT
 FROM customer_demographics_clean
 GROUP BY gender
 ORDER BY nb_clients DESC;
---La répartition par genre est particulièrement équilibrée, chaque segment représentant environ un tiers de la clientèle. Les revenus moyens sont très proches entre les groupes, ce qui suggère une structure socio-économique homogène et l’absence de segment dominant en termes de pouvoir d’achat.
+/*La répartition par genre est particulièrement équilibrée, chaque segment représentant environ un tiers de la clientèle. Les revenus 
+moyens sont très proches entre les groupes, ce qui suggère une structure socio-économique homogène et l’absence de segment dominant en 
+termes de pouvoir d’achat.*/
 
 -- 3.2 Répartition par région géographique
 SELECT 
@@ -409,7 +447,9 @@ SELECT
 FROM customer_demographics_clean
 GROUP BY region
 ORDER BY nb_clients DESC;
---La clientèle est répartie de manière très équilibrée entre les régions (≈14 % chacune). South America et Asia concentrent légèrement plus de clients, mais les écarts restent faibles. Les revenus moyens sont homogènes d’une région à l’autre, suggérant une base client comparable en termes de pouvoir d’achat.
+/*La clientèle est répartie de manière très équilibrée entre les régions (≈14 % chacune). South America et Asia concentrent légèrement 
+plus de clients, mais les écarts restent faibles. Les revenus moyens sont homogènes d’une région à l’autre, suggérant une base client 
+comparable en termes de pouvoir d’achat.*/
 
 -- 3.3 Répartition par pays (Top 10)
 SELECT 
@@ -422,7 +462,9 @@ FROM customer_demographics_clean
 GROUP BY country, region
 ORDER BY nb_clients DESC
 LIMIT 10;
---Le Top 10 des pays représente chacun entre 3 % et 4 % de la clientèle totale, indiquant une forte dispersion géographique sans concentration majeure. Les pays les plus représentés se situent principalement en Amérique du Nord et en Océanie. Les revenus moyens restent relativement homogènes entre pays, confirmant une structure socio-économique similaire à l’échelle internationale.
+/*Le Top 10 des pays représente chacun entre 3 % et 4 % de la clientèle totale, indiquant une forte dispersion géographique sans 
+concentration majeure. Les pays les plus représentés se situent principalement en Amérique du Nord et en Océanie. Les revenus moyens 
+restent relativement homogènes entre pays, confirmant une structure socio-économique similaire à l’échelle internationale.*/
 
 -- 3.4 Répartition par statut marital
 SELECT 
@@ -433,7 +475,9 @@ SELECT
 FROM customer_demographics_clean
 GROUP BY marital_status
 ORDER BY nb_clients DESC;
---La clientèle est répartie de manière homogène entre les différents statuts maritaux, chacun représentant environ un quart des clients. Les revenus moyens sont très proches d’un groupe à l’autre, suggérant que le statut marital n’est pas un facteur discriminant majeur en termes de pouvoir d’achat.
+/*La clientèle est répartie de manière homogène entre les différents statuts maritaux, chacun représentant environ un quart des 
+clients. Les revenus moyens sont très proches d’un groupe à l’autre, suggérant que le statut marital n’est pas un facteur discriminant 
+majeur en termes de pouvoir d’achat.*/
 
 -- 3.5 Segmentation par tranche de revenus
 SELECT 
@@ -459,7 +503,9 @@ GROUP BY
         ELSE '200K+'
     END
 ORDER BY revenu_moyen;
---La clientèle se concentre majoritairement dans les tranches de revenus intermédiaires et élevées, avec plus de 80 % des clients gagnant entre 50K et 200K par an. La tranche 0–50K reste minoritaire, ce qui suggère un positionnement orienté vers des consommateurs à pouvoir d’achat moyen à élevé.
+/*La clientèle se concentre majoritairement dans les tranches de revenus intermédiaires et élevées, avec plus de 80 % des clients 
+gagnant entre 50K et 200K par an. La tranche 0–50K reste minoritaire, ce qui suggère un positionnement orienté vers des consommateurs 
+à pouvoir d’achat moyen à élevé.*/
 
 -- 3.6 Segmentation par tranche d'âge
 SELECT 
@@ -485,7 +531,10 @@ GROUP BY
         ELSE '65+'
     END
 ORDER BY tranche_age;
---La population clients est majoritairement composée de profils âgés, avec une forte représentation des 65 ans et plus (28 %). Les autres tranches d’âge adultes sont relativement bien réparties, tandis que les 18–24 ans restent minoritaires. Le revenu moyen est homogène entre les groupes d’âge, suggérant que le pouvoir d’achat ne dépend pas fortement de l’âge dans cet échantillon.
+/*La population clients est majoritairement composée de profils âgés, avec une forte représentation des 65 ans et plus 
+(28 %). Les autres tranches d’âge adultes sont relativement bien réparties, tandis que les 18–24 ans restent minoritaires. 
+Le revenu moyen est homogène entre les groupes d’âge, suggérant que le pouvoir d’achat ne dépend pas fortement de l’âge dans 
+cet échantillon.*/
 
 -- 3. EXPÉRIENCE CLIENT
 --Impact des avis produits sur les ventes (analyse par catégorie)
@@ -516,7 +565,10 @@ SELECT
 FROM avis_par_categorie
 ORDER BY note_moyenne DESC;
 
---Certaines catégories comme Ready-to-eat Organic Salads et Gluten-free Crackers affichent des notes moyennes élevées tout en générant un volume important d’avis, suggérant une forte satisfaction client sur des produits largement diffusés. À l’inverse, Cold-pressed Juices concentre beaucoup d’avis mais avec une note plus modérée, indiquant une popularité élevée accompagnée d’une perception plus mitigée.
+/*Certaines catégories comme Ready-to-eat Organic Salads et Gluten-free Crackers affichent des notes moyennes élevées 
+tout en générant un volume important d’avis, suggérant une forte satisfaction client sur des produits largement diffusés. 
+À l’inverse, Cold-pressed Juices concentre beaucoup d’avis mais avec une note plus modérée, indiquant une popularité élevée 
+accompagnée d’une perception plus mitigée.*/
 
 
 --Produits les mieux notés vs les moins bien notés
@@ -549,7 +601,8 @@ UNION ALL
     ORDER BY note_moyenne ASC, nb_avis DESC
     LIMIT 10
 );
---Cette requête identifie les produits les mieux et les moins bien évalués, afin de repérer les références à fort potentiel et celles présentant des signaux d’alerte côté satisfaction client.
+/*Cette requête identifie les produits les mieux et les moins bien évalués, afin de repérer les références à fort potentiel 
+et celles présentant des signaux d’alerte côté satisfaction client.*/
 
 --Influence des interactions service client
 SELECT 
@@ -564,7 +617,9 @@ SELECT
 FROM customer_service_interactions_clean
 GROUP BY interaction_type, issue_category
 ORDER BY nb_interactions DESC;
---Cette analyse met en évidence les types d’interactions et motifs de contact les plus fréquents avec le service client, ainsi que leur impact sur la satisfaction et le taux de résolution. Elle permet d’identifier les canaux et problématiques générant le plus de volume ainsi que ceux nécessitant des améliorations opérationnelles.
+/*Cette analyse met en évidence les types d’interactions et motifs de contact les plus fréquents avec le service client, 
+ainsi que leur impact sur la satisfaction et le taux de résolution. Elle permet d’identifier les canaux et problématiques 
+générant le plus de volume ainsi que ceux nécessitant des améliorations opérationnelles.*/
 
 --Évolution de la satisfaction client dans le temps
 SELECT 
@@ -600,4 +655,5 @@ SELECT
     a.nb_avis
 FROM avis_par_categorie a
 ORDER BY note_moyenne DESC;
---Certaines catégories combinent forte satisfaction et volume d’avis élevé, tandis que d’autres restent très visibles mais moins bien perçues.
+/*Certaines catégories combinent forte satisfaction et volume d’avis élevé, tandis que d’autres restent 
+très visibles mais moins bien perçues.*/

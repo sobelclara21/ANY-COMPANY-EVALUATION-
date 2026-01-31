@@ -82,7 +82,7 @@ SELECT COUNT(*) FROM BRONZE.customer_service_interactions WHERE duration_minutes
 SELECT COUNT(*) FROM BRONZE.customer_service_interactions WHERE interaction_date > CURRENT_DATE();
 --Aucune date de futur n'a été détecté
 
---Créatino de la table customer_service_interactions_clean en enlevant les doublons
+--Création de la table customer_service_interactions_clean en enlevant les doublons
 CREATE OR REPLACE TABLE customer_service_interactions_clean AS SELECT * FROM BRONZE.customer_service_interactions
 QUALIFY ROW_NUMBER() OVER (PARTITION BY interaction_id ORDER BY interaction_date DESC, customer_satisfaction DESC NULLS LAST) = 1;
 
@@ -217,7 +217,8 @@ SELECT
     'SILVER' as source,
     COUNT(*) as nb_rows
 FROM marketing_campaigns_clean;
---La déduplication appliquée à marketing_campaigns a réduit le volume de données de 5 000 à 4 861 lignes dans la couche SILVER.
+/*La déduplication appliquée à marketing_campaigns a réduit le volume de données de 5 000 à 4 861 lignes 
+dans la couche SILVER.*/
 
 --Analyse des valeurs manquantes 
 SELECT 
@@ -424,7 +425,8 @@ SELECT
   MAX(ARRAY_SIZE(SPLIT(raw_line, '\t'))) AS max_nb_champs
 FROM BRONZE.product_reviews_raw
 WHERE raw_line IS NOT NULL;
---Les 1 000 lignes de product_reviews_raw présentent toutes exactement 13 champs, confirmant une structure homogène après identification du délimiteur.
+/*Les 1 000 lignes de product_reviews_raw présentent toutes exactement 13 champs, confirmant une structure 
+homogène après identification du délimiteur.*/
 
 --Verification valeur valeur nulle
 WITH parsed AS (

@@ -314,7 +314,9 @@ SELECT
     AVG(annual_income) as avg_income
 FROM customer_demographics;
 
---La table customer_demographics contient 5 000 clients uniques, avec des dates de naissance comprises entre 1944 et 2007, couvrant une population adulte variée. Les données sont géographiquement diversifiées (7 régions, 33 pays) et présentent trois catégories de genre, avec un revenu moyen élevé.
+/*La table customer_demographics contient 5 000 clients uniques, avec des dates de naissance comprises entre 1944 et 2007, couvrant une population 
+adulte variée. Les données sont géographiquement diversifiées (7 régions, 33 pays) et présentent trois catégories de genre, avec un revenu 
+moyen élevé.*/
 
 SELECT 
     COUNT(DISTINCT interaction_id) as unique_interactions,
@@ -326,7 +328,9 @@ SELECT
     AVG(customer_satisfaction) as avg_satisfaction,
     COUNT(DISTINCT resolution_status) as nb_status
 FROM customer_service_interactions;
---La table customer_service_interactions recense 4 997 interactions uniques entre 2010 et 2023, couvrant 4 types de contacts et 5 catégories de problèmes, avec une durée moyenne d’environ 31 minutes et une satisfaction client proche de 3/5.
+
+/*La table customer_service_interactions recense 4 997 interactions uniques entre 2010 et 2023, couvrant 4 types de contacts et 5 catégories 
+de problèmes, avec une durée moyenne d’environ 31 minutes et une satisfaction client proche de 3/5.*/
 
 SELECT 
     COUNT(DISTINCT transaction_id) as unique_transactions,
@@ -340,7 +344,8 @@ SELECT
     COUNT(DISTINCT payment_method) as nb_payment_methods,
     COUNT(DISTINCT region) as nb_regions
 FROM financial_transactions;
---La table financial_transactions contient 5 000 transactions uniques entre 2010 et 2023, couvrant 5 types de transactions et 5 moyens de paiement, avec un montant moyen d’environ 5 016 et des valeurs comprises entre 12 et 9 998, réparties sur 7 régions.
+/*La table financial_transactions contient 5 000 transactions uniques entre 2010 et 2023, couvrant 5 types de transactions et 5 moyens 
+de paiement, avec un montant moyen d’environ 5 016 et des valeurs comprises entre 12 et 9 998, réparties sur 7 régions.*/
 
 SELECT 
     COUNT(DISTINCT campaign_id) as unique_campaigns,
@@ -355,7 +360,8 @@ SELECT
     AVG(conversion_rate) as avg_conversion_rate,
     COUNT(DISTINCT region) as nb_regions
 FROM marketing_campaigns;
---La table marketing_campaigns regroupe des campagnes réparties sur 7 régions, avec un budget total d’environ 127 M, un budget moyen proche de 254 k et un taux de conversion moyen d’environ 5,5 %, pour une portée moyenne d’environ 50 k par campagne.
+/*La table marketing_campaigns regroupe des campagnes réparties sur 7 régions, avec un budget total d’environ 127 M, un budget moyen 
+proche de 254 k et un taux de conversion moyen d’environ 5,5 %, pour une portée moyenne d’environ 50 k par campagne.*/
 
 SELECT 
     COUNT(DISTINCT promotion_id) as unique_promotions,
@@ -369,7 +375,8 @@ SELECT
     COUNT(DISTINCT region) as nb_regions
 FROM promotions_data;
 
---La table promotions_data comprend 87 promotions couvrant 75 types et 3 catégories de produits, réparties sur 9 régions, avec des réductions comprises entre 5 % et 25 % et une moyenne d’environ 15 %, sur la période 2020–2025.
+/*La table promotions_data comprend 87 promotions couvrant 75 types et 3 catégories de produits, réparties sur 9 régions, avec des 
+réductions comprises entre 5 % et 25 % et une moyenne d’environ 15 %, sur la période 2020–2025.*/
 
 SELECT 
     COUNT(DISTINCT shipment_id) as unique_shipments,
@@ -386,7 +393,8 @@ SELECT
     COUNT(DISTINCT destination_country) as nb_countries,
     COUNT(DISTINCT carrier) as nb_carriers
 FROM logistics_and_shipping;
---La table logistics_and_shipping recense près de 5 000 expéditions entre 2010 et 2023, couvrant 4 méthodes de livraison et 5 statuts, avec un coût moyen d’environ 52, réparties sur 7 régions, 33 pays et plus de 4 500 transporteurs distincts
+/*La table logistics_and_shipping recense près de 5 000 expéditions entre 2010 et 2023, couvrant 4 méthodes de livraison et 5 statuts, 
+avec un coût moyen d’environ 52, réparties sur 7 régions, 33 pays et plus de 4 500 transporteurs distincts*/
 
 
 SELECT 
@@ -401,7 +409,8 @@ SELECT
     AVG(reliability_score) as avg_reliability,
     COUNT(DISTINCT quality_rating) as nb_quality_ratings
 FROM supplier_information;
---La table supplier_information regroupe 4 865 fournisseurs répartis sur 7 régions et 33 pays, avec un délai moyen de livraison d’environ 15 jours, des valeurs comprises entre 1 et 30 jours, et un score de fiabilité moyen proche de 0,70
+/*La table supplier_information regroupe 4 865 fournisseurs répartis sur 7 régions et 33 pays, avec un délai moyen de livraison d’environ 
+15 jours, des valeurs comprises entre 1 et 30 jours, et un score de fiabilité moyen proche de 0,70*/
 
 SELECT 
     COUNT(DISTINCT employee_id) as unique_employees,
@@ -417,7 +426,8 @@ SELECT
     COUNT(DISTINCT region) as nb_regions,
     COUNT(DISTINCT country) as nb_countries
 FROM employee_records;
---La table employee_records comprend 4 867 employés embauchés entre 2000 et 2023, répartis sur 7 régions et 33 pays, couvrant 42 postes différents, avec un salaire moyen d’environ 89 946 et des valeurs de salaire comprises entre 30 020 et 149 989.
+/*La table employee_records comprend 4 867 employés embauchés entre 2000 et 2023, répartis sur 7 régions et 33 pays, couvrant 42 postes 
+différents, avec un salaire moyen d’environ 89 946 et des valeurs de salaire comprises entre 30 020 et 149 989.*/
 
 SELECT 
     COUNT(DISTINCT v:product_id) as unique_products,
@@ -429,7 +439,8 @@ SELECT
     SUM(v:current_stock::INTEGER) as total_stock,
     AVG(v:lead_time::INTEGER) as avg_lead_time
 FROM inventory_raw;
---La table inventory_raw recense près de 5 000 produits répartis sur 7 catégories et 7 régions, stockés dans plus de 4 500 entrepôts à travers 33 pays, avec un stock moyen d’environ 5 002 unités et un délai d’approvisionnement moyen d’environ 55 jours.
+/*La table inventory_raw recense près de 5 000 produits répartis sur 7 catégories et 7 régions, stockés dans plus de 4 500 entrepôts à travers 
+33 pays, avec un stock moyen d’environ 5 002 unités et un délai d’approvisionnement moyen d’environ 55 jours.*/
 
 SELECT 
     COUNT(DISTINCT w:store_id) as unique_stores,
@@ -438,6 +449,7 @@ SELECT
     COUNT(DISTINCT w:city) as nb_cities,
     COUNT(DISTINCT w:store_type) as nb_store_types
 FROM store_locations_raw;
---La table store_locations_raw recense 897 magasins répartis sur 7 régions et 33 pays, couvrant plus de 4 200 villes et 5 types de points de vente
+/*La table store_locations_raw recense 897 magasins répartis sur 7 régions et 33 pays, couvrant plus de 4 200 villes et 5 types de points de vente*/
 
--- Pour la table product_reviews_raw, les Colonnes clés seront identifier après le parsing pour la création du modèle silver car pour le moment il est chargé en raw text 
+/*Pour la table product_reviews_raw, les Colonnes clés seront identifier après le parsing pour la création du modèle silver car pour le moment il est 
+chargé en raw text */
