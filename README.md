@@ -31,30 +31,9 @@ Pour y parvenir, l'équipe doit :
 
 ## Infrastructure
 
-Snowflake : Plateforme cloud pour le stockage et l'analyse des données  
-
-Amazon S3 : Stockage des fichiers sources (s3://logbrain-datalake/datasets/food-beverage/)  
-
-Streamlit : Dashboards interactifs pour la visualisation
-
-## Structure
-ANY COMPANY/
-├── sql/
-|   ├── Load_data.sql
-|   ├── clean_data.sql
-│   ├── sales_trends.sql
-│   ├── promotion_impact.sql
-│   └── campaign_performance.sql
-├── streamlit/
-│   ├── sales_dashboard.py
-│   ├── promotion_analysis.py
-│   └── marketing_roi.py
-├── ml/
-│   ├── Data_product.sql
-│
-│   ├── README.md
-│   └── business_insights.md
-
+    - Snowflake : Plateforme cloud pour le stockage et l'analyse des données  
+    - Amazon S3 : Stockage des fichiers sources (s3://logbrain-datalake/datasets/food-beverage/)  
+    - Streamlit : Dashboards interactifs pour la visualisation
 
 ## Méthodologie
 
@@ -88,19 +67,20 @@ Phase 3 : Modélisation analytique (Analytics)
 ## Difficultés techniques rencontrées
 
 1. Parsing du fichier product_reviews.csv
-Problème : Caractères spéciaux et retours à la ligne dans les commentaires provoquaient des erreurs de parsing avec le format CSV standard.
-Solution : Chargement en mode texte brut (FIELD_DELIMITER = 'NONE') dans une table temporaire, puis parsing manuel avec SPLIT_PART() sur le délimiteur tab.
+
+    - Problème : Caractères spéciaux et retours à la ligne dans les commentaires provoquaient des erreurs de parsing avec le format CSV standard.
+    - Solution : Chargement en mode texte brut (FIELD_DELIMITER = 'NONE') dans une table temporaire, puis parsing manuel avec SPLIT_PART() sur le délimiteur tab.
 
 2. Doublons dans les tables sources
-Problème : Plusieurs tables contenaient des doublons 
-Solution : Utilisation de QUALIFY avec ROW_NUMBER() OVER (PARTITION BY clé ORDER BY critères prioritaires) = 1 pour ne garder qu'une occurrence en priorisant les données les plus récentes ou complètes.
+    - Problème : Plusieurs tables contenaient des doublons 
+    - Solution : Utilisation de QUALIFY avec ROW_NUMBER() OVER (PARTITION BY clé ORDER BY critères prioritaires) = 1 pour ne garder qu'une occurrence en priorisant les données les plus récentes ou complètes.
 
 3. Alignement temporel ventes/promotions
 
-Problème : Complexité pour identifier quelles promotions étaient actives au moment exact de chaque transaction car aucune clé jointure d’identifier la transaction avec la promotion avec le produit avec le client.
-Solution : Jointure conditionnelle avec transaction_date BETWEEN start_date AND end_date ET correspondance de la région. Utilisation de LISTAGG pour agréger les multiples promotions actives.
+    - Problème : Complexité pour identifier quelles promotions étaient actives au moment exact de chaque transaction car aucune clé jointure d’identifier la transaction avec la promotion avec le produit avec le client.
+    - Solution : Jointure conditionnelle avec transaction_date BETWEEN start_date AND end_date ET correspondance de la région. Utilisation de LISTAGG pour agréger les multiples promotions actives.
 
 4. Formatage des dates dans Streamlit
 
-Problème : Erreurs SQL lors de la construction dynamique des clauses WHERE avec les dates sélectionnées.
-Solution : Fonction utilitaire escape_sql_string() et formatage explicite avec TO_DATE(date_str, 'YYYY-MM-DD').
+    - Problème : Erreurs SQL lors de la construction dynamique des clauses WHERE avec les dates sélectionnées.
+    - Solution : Fonction utilitaire escape_sql_string() et formatage explicite avec TO_DATE(date_str, 'YYYY-MM-DD').
