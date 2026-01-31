@@ -16,7 +16,7 @@ L'entreprise fait face à une situation critique :
     - Budget marketing réduit : baisse de 30% des ressources disponibles  
     - Concurrence agressive : arrivée de marques digitales proposant des prix inférieurs de 5 à 15%
 
-Face à ces défis, le PDG a lancé une initiative de transformation digitale en confiant à Sarah (Senior Marketing Executive) la mission de piloter une stratégie data-driven.
+Face à ces défis, le PDG a lancé une initiative de transformation digitale en confiant la mission de piloter une stratégie data-driven.
 
 ## Objectif
 
